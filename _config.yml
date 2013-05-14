@@ -10,7 +10,7 @@ description: This is a sample Jekyll Blog.
 #baseurl: /path/to/blog 
 
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
-url: http://yourdomain.com/
+url: http://jaumeb.github.io/
 
 # Continue compiling even if there are errors. Keep it true, unless troubleshooting.
 auto: true

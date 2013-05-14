@@ -1,4 +1,4 @@
 jaumeb.github.io
 ================
 
-el meu blog
+el meu blog :)

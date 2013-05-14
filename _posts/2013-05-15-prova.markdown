@@ -10,5 +10,5 @@ això es el text amb un [enllaç](http://example.cat)
 
 aquesta **paraula** està en negreta.
 
-aquesta altra paraula està en *cursiva*
+aquesta altra *paraula* està en cursiva
 

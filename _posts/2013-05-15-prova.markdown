@@ -1,3 +1,9 @@
+---
+layout: post
+title: és una prova
+
+excerpt: fent proves
+---
 # Títol de la pàgina
 
 això es el text amb un [enllaç](http://example.cat)

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: és una prova
+title: És una prova
 
 excerpt: fent proves
 ---

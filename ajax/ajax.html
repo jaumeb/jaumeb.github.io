@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<title>Lesson 18: Making AJAX Calls</title>
+  </head>
+  <body>
+    <h1>Lesson 18: Making AJAX Calls - XML Response</h1>
+		
+		<div id="test">
+		
+		  <h2>Click the button to get a list of programming languages</h2>
+			
+			<input type="button" onclick="loadXml('lesson18_test.xml')" value="Click here!" />
+			
+		</div>
+	
+	<script type="text/javascript">
+	  var myRequest;
+	  function loadXml(url)
+		{		  
+			if (window.XMLHttpRequest)
+			{
+			  myRequest = new XMLHttpRequest();
+			}
+			else
+			{
+			  myRequest = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			myRequest.open("GET", url, true);
+			myRequest.send(null);
+			myRequest.onreadystatechange = getData;			
+		}
+		
+		function getData()
+		{
+		  var myDiv = document.getElementById("test");
+		  if (myRequest.readyState ===4)
+			{
+			  if (myRequest.status === 200)
+				{
+				  var languages = myRequest.responseXML.getElementsByTagName("language");
+					for (var i = 0; i < languages.length; i++)
+					{
+					  var paragraph = document.createElement("p");
+						myDiv.appendChild(paragraph);
+					  paragraph.appendChild(document.createTextNode(languages[i].firstChild.data));
+					}			    
+				}
+			}
+		}
+	</script>
+	
+  </body>
+ </html>

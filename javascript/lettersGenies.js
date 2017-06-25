@@ -82,10 +82,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function lletres1G(numG) {
         // deletes leading zeros in numG
         numG = numG.replace(/^[0]+/g, "")
-        divLletresGeni.innerHTML += '<h1>Geni ' +
-            numG + ': ' +
-            genis72[numG - 1] +
-            '</h1>'
+        divLletresGeni.innerHTML += 
+            `Geni ${numG}: 
+            <span style="font-size: 2em">
+                ${genis72[numG - 1]}
+            </span><br>`
     }
 
     /**
@@ -113,8 +114,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // builds an eight column table
             table72G +=
                     '<tr>\
-                        <td>' + i + '       </td> <td>' + genis72[i - 1] + '</td> \
-                        <td>' + (i + 8) + ' </td> <td>' + genis72[i + 7] + '</td> \
+                        <td>' + i + '        </td> <td>' + genis72[i - 1] + '</td> \
+                        <td>' + (i + 8)  + ' </td> <td>' + genis72[i + 7] + '</td> \
                         <td>' + (i + 16) + ' </td> <td>' + genis72[i + 15] + '</td> \
                         <td>' + (i + 24) + ' </td> <td>' + genis72[i + 23] + '</td> \
                         <td>' + (i + 32) + ' </td> <td>' + genis72[i + 31] + '</td> \

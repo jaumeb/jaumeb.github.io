@@ -25,6 +25,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // puts cursor in the field for input the number
     inputNumbers.focus()
+
+/**
+     * if there is a valid numbers in the input,
+     * execute the function that write the letters.
+     */
+    buttonEscriu.addEventListener('click', function () {
+        let numG = inputNumbers.value
+        if (isValid(numG)) {
+            writeLetters(numG)
+        }
+    })
+
     // capture Return key
     inputNumbers.addEventListener('keydown', function (e) {
         const key = e.keyCode || e.which // valid in all browsers
@@ -41,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     function isValid(numG) {
         // only numbers of 1 or 2 digits
-        const numericExpression = /^[0-9]{1,2}$/
+        const numericExpression = /^[0-9][0-9]?$/
         // from 0 to 72
         if (numG.match(numericExpression) && numG < 73) {
             return true
@@ -53,40 +65,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /**
-     * if there is a valid numbers in the input, execute the function that write the letters.
-     */
-    buttonEscriu.addEventListener('click', function () {
-        let numG = inputNumbers.value
-        if (isValid(numG)) {
-            writeLetters(numG)
-        }
-    })
-
-    /**
+     * called by buttonEscriu.
      * write the letters of the Genii,
      * individually or the whole 72 in a table
      * @param {number} numG
      */
     function writeLetters(numG) {
-        if (numG == 0) {
-            lletres72G(numG)
-        } else
-        if (numG > 0) {
-            lletres1G(numG)
-        }
+        numG == 0 ? lletres72G(numG) : lletres1G(numG)
     }
     /**
      * write the 5 letters of the Genie
      * @param {integer} numG
      */
     function lletres1G(numG) {
-        // deletes leading zeros in numG
-        numG = numG.replace(/^[0]+/g, "")
+        // the number of one digit always with a leading zero
+        // to align the posible list of more than one names
+        let paddedNumber = function (numG) {
+            let nG = parseInt(numG,10)
+            return nG < 10 ? nG =  "&nbsp;&nbsp;" + nG : nG
+        } (numG)
         divLletresGeni.innerHTML += 
-            `Geni ${numG}: 
-            <span style="font-size: 2em">
-                ${genis72[numG - 1]}
-            </span><br>`
+            `<span style="color: red;">
+            Geni ${paddedNumber}: 
+            <div style="display: inline; float: right; text-align: right; font-size: 2em; color: #727272;">
+            ${genis72[numG - 1]}
+            </div></span><br>`
     }
 
     /**
